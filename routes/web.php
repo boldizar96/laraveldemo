@@ -79,8 +79,14 @@ Route::get('/contact', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    //$articles = App\Models\Article::latest()->get();
+    //return $articles;
+    return view('about', [
+        'articles' =>App\Models\Article::take(2)->latest()->get()
+    ]);
 });
+Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index']);
+Route::get('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'show']);
 
 /*
 Route::get('/hello', function () {
