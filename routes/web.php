@@ -86,7 +86,11 @@ Route::get('/about', function () {
     ]);
 });
 Route::get('/articles', [App\Http\Controllers\ArticlesController::class, 'index']);
+Route::get('/articles/create', [App\Http\Controllers\ArticlesController::class, 'create']);
 Route::get('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'show']);
+Route::post('/articles', [App\Http\Controllers\ArticlesController::class, 'store']);
+Route::get('/articles/{article}/edit', [App\Http\Controllers\ArticlesController::class, 'edit']);
+Route::put('/articles/{article}', [App\Http\Controllers\ArticlesController::class, 'update']);
 
 /*
 Route::get('/hello', function () {
